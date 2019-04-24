@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  kumuluz:
+    build: .
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/authentication
+      DATABASE_USER: postgres
+      DATABASE_PASS: postgres
+      JWT_SECRET: secret
+    ports:
+      - 8080:8080
+    volumes:
+      - ./target/authentication-service-1.0.0.jar:/home/app/target/authentication-service-1.0.0.jar
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: authentication
+    ports:
+      - 5432:5432
+
+networks:
+    default:
+        driver: bridge

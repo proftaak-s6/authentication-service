@@ -1,0 +1,17 @@
+kumuluzee:
+  openapi:
+    ui:
+      enabled: true
+  datasources:
+    - jndi-name: jdbc/authentication
+      connection-url: '${DATABASE_URL}'
+      username: '${DATABASE_USER}'
+      password: '${DATABASE_PASS}'
+      pool:
+        max-size: 20
+
+appConfig:
+  jwt:
+    secret: '${JWT_SECRET}'
+    audience: rekeningrijden.fontys-project.nl
+    issuer: authentication.rekeningrijden.fontys-project.nl
