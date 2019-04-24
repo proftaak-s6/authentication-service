@@ -3,7 +3,6 @@ version: "2"
 services:
   kumuluz:
     image: yoksar/authentication-service
-    build: .
     environment:
       DATABASE_URL: jdbc:postgresql://db:5432/authentication
       DATABASE_USER: postgres
@@ -11,8 +10,6 @@ services:
       JWT_SECRET: secret
     ports:
       - 8080:8080
-    volumes:
-      - ./target/authentication-service-1.0.0.jar:/home/app/target/authentication-service-1.0.0.jar
 
   db:
     image: postgres
