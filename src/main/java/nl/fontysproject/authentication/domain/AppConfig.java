@@ -9,11 +9,21 @@ import javax.inject.Inject;
 @ConfigBundle("appConfig")
 public class AppConfig {
 
+    private String[] allowedRoles;
+
     @Inject
     private JwtConfig jwt;
 
     public JwtConfig jwt() {
         return jwt;
+    }
+
+    public String[] getAllowedRoles() {
+        return allowedRoles;
+    }
+
+    public void setAllowedRoles(String[] allowedRoles) {
+        this.allowedRoles = allowedRoles;
     }
 
     public void setJwt(JwtConfig jwt) {

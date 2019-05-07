@@ -15,3 +15,5 @@ appConfig:
     secret: '${JWT_SECRET}'
     audience: rekeningrijden.fontys-project.nl
     issuer: authentication.rekeningrijden.fontys-project.nl
+  brp:
+    url: 'http://brp.fontys-project.nl'

@@ -1,14 +1,16 @@
 package nl.fontysproject.authentication.domain.model;
 
-import nl.fontysproject.authentication.domain.validation.annotation.AllowedValues;
-import nl.fontysproject.authentication.domain.validation.annotation.Bsn;
-import nl.fontysproject.authentication.domain.validation.annotation.DateFormat;
-
-import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @NamedQuery(name = User.FIND_BY_USERNAME_AND_PASSWORD, query = "SELECT u FROM users u WHERE username = :username AND password = :password")
 @Entity(name = "users")
@@ -21,39 +23,25 @@ public class User {
     private long id;
 
     @Column
-    @NotNull
     private long brpId;
 
     @Column
-    @NotNull
-    @NotBlank
-    @Bsn
     private String bsn;
 
     @Column(unique = true)
-    @Email
-    @NotNull
-    @NotBlank
     private String email;
 
-    @NotNull
-    @NotBlank
-    @DateFormat(pattern = "dd-MM-yyyy")
+    @Column
     private String birthday;
 
     @Column(unique = true)
-    @NotNull
-    @NotBlank
     private String username;
 
-    @NotNull
-    @NotBlank
+    @Column
     private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "roles")
-    @NotNull
-    @AllowedValues(values = {"driver", "police", "government"})
     private Set<String> roles;
 
     /**

@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import nl.fontysproject.authentication.domain.model.User;
 import nl.fontysproject.authentication.service.UserService;
+import nl.fontysproject.authentication.web.dto.UserDto;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -38,7 +39,7 @@ public class UserController {
                     content = @Content(schema = @Schema(implementation = Exception.class))
             )
     })
-    public Response post(@Valid User user, @Context UriInfo context) {
+    public Response post(@Valid UserDto user, @Context UriInfo context) {
         try {
             long id = service.add(user);
 

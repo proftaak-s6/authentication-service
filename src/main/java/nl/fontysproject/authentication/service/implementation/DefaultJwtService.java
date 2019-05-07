@@ -10,6 +10,7 @@ import nl.fontysproject.authentication.service.JwtService;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -29,11 +30,13 @@ public class DefaultJwtService implements JwtService {
 
     @Override
     public JwtToken createToken(User user) {
+
         String token = JWT.create()
                 .withIssuer(config.jwt().getIssuer())
                 .withAudience(config.jwt().getAudience())
                 .withSubject(user.getUsername())
                 .withClaim("userId", user.getId())
+                .withClaim("brpId", user.getBrpId())
                 .withArrayClaim("roles", user.getRoles().toArray(new String[0]))
                 .withIssuedAt(new Date())
                 .withExpiresAt(convertToDate(LocalDate.now().plusDays(1)))
