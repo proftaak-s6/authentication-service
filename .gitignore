@@ -1,4 +1,5 @@
 volumes/db/data
+.settings
 
 # Created by https://www.gitignore.io/api/java,maven,intellij
 # Edit at https://www.gitignore.io/?templates=java,maven,intellij
@@ -123,3 +124,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # End of https://www.gitignore.io/api/java,maven,intellij
+.project
+.classpath
+.factorypath
