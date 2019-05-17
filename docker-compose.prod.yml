@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  authentication:
+    build: .
+    environment:
+      DATABASE_URL: jdbc:postgresql://192.168.178.24:9020/authentication
+      DATABASE_USER: postgres
+      DATABASE_PASS: postgres
+      JWT_SECRET: 6064a93d6c044a809828410c82b9b5f7
+      BRP_URL: http://brp.fontys-project.nl
+    ports:
+      - 9200:8080
