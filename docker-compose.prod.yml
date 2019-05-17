@@ -3,7 +3,7 @@ version: "3"
 services:
   authentication:
     build: .
-    image: yoksar/authentication-serivce
+    image: yoksar/authentication-service
     environment:
       DATABASE_URL: jdbc:postgresql://192.168.178.24:9020/authentication
       DATABASE_USER: postgres
