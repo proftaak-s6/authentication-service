@@ -1,7 +1,7 @@
 package nl.fontysproject.authentication.service;
 
-import nl.fontysproject.authentication.web.dto.UserDto;
+import nl.fontysproject.authentication.domain.model.User;
 
 public interface UserService {
-	long add(UserDto user) throws Exception;
+	long add(User user) throws Exception;
 }

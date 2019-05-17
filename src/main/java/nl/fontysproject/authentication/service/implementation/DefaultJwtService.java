@@ -2,7 +2,7 @@ package nl.fontysproject.authentication.service.implementation;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import nl.fontysproject.authentication.domain.AppConfig;
+import nl.fontysproject.authentication.domain.config.AppConfig;
 import nl.fontysproject.authentication.domain.model.JwtToken;
 import nl.fontysproject.authentication.domain.model.User;
 import nl.fontysproject.authentication.service.JwtService;

@@ -1,4 +1,4 @@
-package nl.fontysproject.authentication.domain;
+package nl.fontysproject.authentication.domain.config;
 
 import com.kumuluz.ee.configuration.cdi.ConfigBundle;
 
@@ -14,9 +14,13 @@ public class AppConfig {
     @Inject
     private JwtConfig jwt;
 
+    @Inject
+    private ServicesConfig services;
+
     public JwtConfig jwt() {
         return jwt;
     }
+    public ServicesConfig services() {return services; }
 
     public String[] getAllowedRoles() {
         return allowedRoles;
@@ -29,4 +33,6 @@ public class AppConfig {
     public void setJwt(JwtConfig jwt) {
         this.jwt = jwt;
     }
+
+
 }

@@ -17,24 +17,9 @@ public class JpaUserService implements UserService {
 
     @Override
     @Transactional
-    public long add(UserDto dto) {
-        User user = dtoToUser(dto);
-        
+    public long add(User user) {
         manager.persist(user);
 
         return user.getId();
-    }
-
-    private User dtoToUser(UserDto dto) {
-        User user = new User();
-
-        user.setBirthday(dto.getBirthday());
-        user.setBsn(dto.getBsn());
-        user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
-        user.setRoles(dto.getRoles());
-        user.setUsername(dto.getUsername());
-
-        return user;
     }
 }

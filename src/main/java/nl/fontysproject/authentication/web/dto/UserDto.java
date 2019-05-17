@@ -13,9 +13,6 @@ import nl.fontysproject.authentication.domain.validation.annotation.DateFormat;
 public class UserDto {
 
     @NotNull
-    private long brpId;
-
-    @NotNull
     @NotBlank
     @Bsn
     private String bsn;
@@ -27,7 +24,7 @@ public class UserDto {
 
     @NotNull
     @NotBlank
-    @DateFormat(pattern = "dd-MM-yyyy")
+    @DateFormat(pattern = "dd/MM/yyyy")
     private String birthday;
 
     @NotNull
@@ -88,13 +85,5 @@ public class UserDto {
 
     public void setBsn(String bsn) {
         this.bsn = bsn;
-    }
-
-    public long getBrpId() {
-        return brpId;
-    }
-
-    public void setBrpId(long brpId) {
-        this.brpId = brpId;
     }
 }

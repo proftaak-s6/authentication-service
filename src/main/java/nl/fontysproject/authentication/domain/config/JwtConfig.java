@@ -1,4 +1,4 @@
-package nl.fontysproject.authentication.domain;
+package nl.fontysproject.authentication.domain.config;
 
 import com.kumuluz.ee.configuration.cdi.ConfigBundle;
 
