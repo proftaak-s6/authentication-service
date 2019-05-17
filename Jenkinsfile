@@ -37,7 +37,7 @@ agent any
             steps {
                 node("docker-prod") {
                     git([url: gitUrl, branch: 'master', credentialsId: 'Github'])
-                    // sh "docker service rm authentication-service_authentication
+                    sh "docker service rm authentication-service_authentication"
                     sh "docker stack deploy --with-registry-auth -c docker-compose.prod.yml authentication-service"
                 }
             }
