@@ -30,7 +30,7 @@ public class AuthenticationController {
     private JwtService jwtService;
 
     @POST
-    @Operation(description = "Authenticate using a username and password.", parameters = {
+    @Operation(description = "Authenticate using a username and password.", tags = {"Authentication"}, parameters = {
             @Parameter(schema = @Schema(implementation = Credential.class), required = true, description = "The username and password.")
     }, responses = {
             @ApiResponse(

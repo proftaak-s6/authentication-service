@@ -6,15 +6,9 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.security.SecuritySchemes;
 import io.swagger.v3.oas.annotations.servers.Server;
-import nl.fontysproject.authentication.web.controller.AuthenticationController;
-import nl.fontysproject.authentication.web.controller.TestController;
-import nl.fontysproject.authentication.web.controller.UserController;
-import nl.fontysproject.authentication.web.controller.filter.AuthorizeFilter;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
-import java.util.Set;
 
 @ApplicationPath("")
 @OpenAPIDefinition(info = @Info(

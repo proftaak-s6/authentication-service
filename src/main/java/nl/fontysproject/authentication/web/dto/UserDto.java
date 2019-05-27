@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import nl.fontysproject.authentication.domain.validation.annotation.AllowedValues;
 import nl.fontysproject.authentication.domain.validation.annotation.Bsn;
@@ -24,6 +25,16 @@ public class UserDto {
 
     @NotNull
     @NotBlank
+    @Pattern(regexp = "^(((\\+31|0|0031)6)[1-9][0-9]{7})$", message = "Ongeldig telefoonnummer.")
+    private String phoneNumber;
+
+    @NotNull
+    @NotBlank
+    @Pattern(regexp = "^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$", flags = {Pattern.Flag.CASE_INSENSITIVE}, message = "Ongeldige postcode")
+    private String zipCode;
+
+    @NotNull
+    @NotBlank
     @DateFormat(pattern = "dd/MM/yyyy")
     private String birthday;
 
@@ -36,15 +47,47 @@ public class UserDto {
     private String password;
 
     @NotNull
-    @AllowedValues(values = { "driver", "police", "government" })
+    @AllowedValues(values = {"user", "driver", "police", "government"})
     private Set<String> roles;
 
-    public Set<String> getRoles() {
-        return roles;
+    public String getBsn() {
+        return bsn;
     }
 
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
+    public void setBsn(String bsn) {
+        this.bsn = bsn;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getUsername() {
@@ -63,27 +106,11 @@ public class UserDto {
         this.password = password;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public Set<String> getRoles() {
+        return roles;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getBsn() {
-        return bsn;
-    }
-
-    public void setBsn(String bsn) {
-        this.bsn = bsn;
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
     }
 }

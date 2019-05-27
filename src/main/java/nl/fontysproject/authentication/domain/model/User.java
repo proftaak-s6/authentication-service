@@ -28,11 +28,23 @@ public class User {
     @Column
     private String bsn;
 
+    @Column
+    private String firstName;
+
+    @Column
+    private String lastName;
+
     @Column(unique = true)
     private String email;
 
     @Column
     private String birthday;
+
+    @Column
+    private String phoneNumber;
+
+    @Column
+    private String zipCode;
 
     @Column(unique = true)
     private String username;
@@ -43,6 +55,24 @@ public class User {
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "roles")
     private Set<String> roles;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", brpId=" + brpId +
+                ", bsn='" + bsn + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
 
     /**
      * @return the id
@@ -149,5 +179,37 @@ public class User {
 
     public void setBrpId(long brpId) {
         this.brpId = brpId;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
