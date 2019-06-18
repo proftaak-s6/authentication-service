@@ -7,7 +7,8 @@ import javax.transaction.Transactional;
 
 import nl.fontysproject.authentication.domain.model.User;
 import nl.fontysproject.authentication.service.UserService;
-import nl.fontysproject.authentication.web.dto.UserDto;
+
+import java.util.List;
 
 @ApplicationScoped
 public class JpaUserService implements UserService {
@@ -21,5 +22,23 @@ public class JpaUserService implements UserService {
         manager.persist(user);
 
         return user.getId();
+    }
+
+    @Override
+    public User find(long id) {
+        return manager.find(User.class, id);
+    }
+
+    @Override
+    public List<User> getAll() {
+        return manager
+                .createQuery("SELECT u FROM users u", User.class)
+                .getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        manager.merge(user);
     }
 }

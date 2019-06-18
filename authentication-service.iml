@@ -4,7 +4,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="PU" value="37e37fa6-12cc-4929-b670-9768fac9fe0c" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
@@ -145,6 +147,9 @@
     <orderEntry type="library" name="Maven: org.glassfish.jersey.ext:jersey-bean-validation:2.28" level="project" />
     <orderEntry type="library" name="Maven: jakarta.el:jakarta.el-api:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:jakarta.el:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.kumuluz.ee.cors:kumuluzee-cors:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: com.thetransactioncompany:cors-filter:2.5" level="project" />
+    <orderEntry type="library" name="Maven: com.thetransactioncompany:java-property-utils:1.9.1" level="project" />
     <orderEntry type="library" name="Maven: com.auth0:java-jwt:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.8" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: commons-codec:commons-codec:1.11" level="project" />
