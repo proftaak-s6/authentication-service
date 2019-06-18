@@ -17,8 +17,8 @@ import javax.ws.rs.core.Application;
         title = "Rekeningrijden | Authentication API",
         version = "0.0.1"),
         servers = {
-                @Server(url = "http://auth.fontys-project.nl"),
-                @Server(url = "http://localhost:8080")
+                @Server(url = "http://auth.fontys-project.nl/"),
+                @Server(url = "http://localhost:8080/")
         }
 )
 @SecuritySchemes(
